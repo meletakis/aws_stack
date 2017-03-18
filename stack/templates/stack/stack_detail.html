@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>{{ object.name }}</h1>
+	 <table class="table">
+	 	<thead>
+	      <tr>
+	        <th>Item</th>
+	        <th>Name</th>
+	        <th>Arn</th>
+	        <th>Url</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	 	<tr>
+	 		<td>Topic</td>
+	 		<td>{{ object.topic.name }}</td>
+	 		<td>{{ object.topic.arn }}</td>
+	 	</tr>
+	 	<tr>
+	 		<td>Queue</td>
+	 		<td>{{ object.queue.name }}</td>
+	 		<td>{{ object.queue.arn }}</td>
+	 		<td>{{ object.queue.url }}</td>
+	 	</tr>
+	 	<tr>
+	 		<td>Dead Letter Queue</td>
+	 		<td>{{ object.dl_queue.name }}</td>
+	 		<td>{{ object.dl_queue.arn }}</td>
+	 		<td>{{ object.dl_queue.url }}</td>
+	 	</tr>
+	 	</tbody>
+	 	<thead>
+	      <tr>
+	        <th>User</th>
+	        <th>Name</th>
+	        <th>Access Key</th>
+	        <th>Secret Key</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	 	<tr>
+	 		<td>Poster</td>
+	 		<td>{{ object.poster.name }}</td>
+	 		<td>{{ object.poster.access_key_id }}</td>
+	 		<td>{{ object.poster.secret_key }}</td>
+	 	</tr>
+	 	<tr>
+	 		<td>Retriever</td>
+	 		<td>{{ object.retriever.name }}</td>
+	 		<td>{{ object.retriever.access_key_id }}</td>
+	 		<td>{{ object.retriever.secret_key }}</td>
+	 	</tr>
+ 		</tbody>
+ 	</table>
+	
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+	<ul id="results">
+		<h1> All Stacks </h1>
+		<ul class="list-group">
+	    {% for stack in stacks %}
+	     <li class="list-group-item"> <a href = "/{{stack.id}}"> {{stack.name}} </a> </li>
+	    {% endfor %}
+	</ul>
+
+	{% for message in messages %}
+	    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+	{% endfor %}
+{% endblock %}
