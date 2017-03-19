@@ -6,7 +6,7 @@ import json
 class AccessManagement:
 
 	def __init__(self):
-		self.iam_client = boto3.client('iam')
+		self.iam_client = boto3.client('iam', region_name='eu-central-1')
 
 	def create_user_keys(self, name, user_type):
 		username = name+user_type
@@ -37,7 +37,7 @@ class AccessManagement:
 class Notification:
 
 	def __init__(self):
-		self.sns_client = boto3.client('sns')
+		self.sns_client = boto3.client('sns', region_name='eu-central-1')
 
 	def create_topic(self, name):
 		try:
@@ -94,7 +94,7 @@ class Notification:
 class SimpleQueue:
 
 	def __init__(self):
-		self.sqs_client = boto3.client('sqs')
+		self.sqs_client = boto3.client('sqs', region_name='eu-central-1')
 
 	def create(self, name):
 		try:
@@ -145,7 +145,8 @@ class SimpleQueue:
 def get_account_id(access_key, secret_key):
 
 	try:
-		client = boto3.client("sts", aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+		client = boto3.client("sts", region_name='eu-central-1', 
+			aws_access_key_id=access_key, aws_secret_access_key=secret_key)
 	except ClientError as e:
 		print "Could not retrieve AWS Acoount ID"
 		return False
